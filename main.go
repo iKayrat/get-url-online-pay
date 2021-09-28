@@ -38,6 +38,7 @@ func main() {
 			log.Panic("ioutil read error: ", err)
 		}
 		log.Println("body (string) :", string(body))
+		log.Println("body (byte) :", body)
 
 		apiResp := APIResponse{}
 		err = json.Unmarshal(body, &apiResp)
