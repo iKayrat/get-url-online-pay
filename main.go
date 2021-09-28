@@ -59,7 +59,7 @@ func main() {
 		}
 		fmt.Println(apiResp.Response)
 
-		c.HTML(http.StatusOK, "response.html", gin.H{
+		c.HTML(http.StatusOK, "response.tmpl.html", gin.H{
 			"response": apiResp,
 		})
 	})
