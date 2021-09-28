@@ -47,9 +47,10 @@ func main() {
 		fmt.Println(apiResp.Response)
 		log.Println(apiResp.Response)
 
-		c.HTML(http.StatusOK, "response.tmpl.html", gin.H{
-			"response": apiResp,
-		})
+		c.JSON(http.StatusOK, apiResp)
+		// c.HTML(http.StatusOK, "response.tmpl.html", gin.H{
+		// 	"response": apiResp,
+		// })
 	})
 
 	http.HandleFunc("/callback2", func(w http.ResponseWriter, r *http.Request) {
