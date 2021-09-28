@@ -32,7 +32,7 @@ func main() {
 		c.HTML(http.StatusOK, "index.tmpl.html", nil)
 	})
 
-	router.GET("/callback", func(c *gin.Context) {
+	router.POST("/callback", func(c *gin.Context) {
 		body, err := ioutil.ReadAll(c.Request.Body)
 		if err != nil {
 			log.Panic("ioutil read error: ", err)
