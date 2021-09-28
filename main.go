@@ -34,7 +34,7 @@ func main() {
 
 	router.GET("/callback", func(c *gin.Context) {
 		log.Println("req body", c.Request.Body)
-		log.Println("req.resp body", c.Request.Response.Body)
+		// log.Println("req.resp body", c.Request.Response.Body)
 		body, err := ioutil.ReadAll(c.Request.Body)
 		if err != nil {
 			log.Panic("ioutil read error: ", err)
