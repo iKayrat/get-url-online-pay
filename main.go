@@ -29,19 +29,6 @@ func main() {
 	router.Static("/static", "static")
 
 	router.GET("/", func(c *gin.Context) {
-		body, err := ioutil.ReadAll(c.Request.Body)
-		if err != nil {
-			panic(err)
-		}
-		fmt.Println(string(body))
-
-		apiResp := APIResponse{}
-		err = json.Unmarshal(body, &apiResp)
-		if err != nil {
-			panic(err)
-		}
-		fmt.Println(apiResp.Response)
-
 		c.HTML(http.StatusOK, "index.tmpl.html", nil)
 	})
 
