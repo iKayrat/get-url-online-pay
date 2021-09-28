@@ -52,5 +52,21 @@ func main() {
 		})
 	})
 
+	http.HandleFunc("/callback2", func(w http.ResponseWriter, r *http.Request) {
+		body, err := ioutil.ReadAll(r.Body)
+		if err != nil {
+			log.Panic("ioutil read error: ", err)
+		}
+		log.Println("body (string) :", string(body))
+
+		apiResp := APIResponse{}
+		err = json.Unmarshal(body, &apiResp)
+		if err != nil {
+			log.Panic("unmarshal error: ", err)
+		}
+		fmt.Println(apiResp.Response)
+		log.Println(apiResp.Response)
+	})
+
 	router.Run(":" + port)
 }
