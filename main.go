@@ -35,16 +35,17 @@ func main() {
 	router.GET("/callback", func(c *gin.Context) {
 		body, err := ioutil.ReadAll(c.Request.Body)
 		if err != nil {
-			panic(err)
+			log.Panic("ioutil read error: ", err)
 		}
 		fmt.Println(string(body))
 
 		apiResp := APIResponse{}
 		err = json.Unmarshal(body, &apiResp)
 		if err != nil {
-			panic(err)
+			log.Panic("unmarshal error: ", err)
 		}
 		fmt.Println(apiResp.Response)
+		log.Println(apiResp.Response)
 
 		c.HTML(http.StatusOK, "response.tmpl.html", gin.H{
 			"response": apiResp,
