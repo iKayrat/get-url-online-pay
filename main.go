@@ -42,9 +42,7 @@ func main() {
 		}
 		fmt.Println(apiResp.Response)
 
-		c.HTML(http.StatusOK, "index.tmpl.html", gin.H{
-			"response": apiResp,
-		})
+		c.HTML(http.StatusOK, "index.tmpl.html", nil)
 	})
 
 	router.GET("/callback", func(c *gin.Context) {
