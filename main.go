@@ -13,7 +13,7 @@ import (
 )
 
 type APIResponse struct {
-	Response interface{}
+	Response interface{} `json:"response"`
 }
 
 func main() {
