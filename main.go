@@ -51,7 +51,7 @@ func main() {
 		fmt.Println(apiResp.Response)
 		log.Println(apiResp.Response)
 
-		c.JSON(http.StatusOK, apiResp)
+		c.JSON(http.StatusOK, apiResp.Response)
 		// c.HTML(http.StatusOK, "response.tmpl.html", gin.H{
 		// 	"response": apiResp,
 		// })
