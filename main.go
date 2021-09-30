@@ -42,9 +42,8 @@ func main() {
 		log.Println("body (string) :", string(body))
 		log.Println("body (byte) :", body)
 
-		apiResp := APIResponse{
-			Response: nil,
-		}
+		apiResp := APIResponse{}
+
 		err = json.Unmarshal(body, &apiResp)
 		if err != nil {
 			log.Panic("unmarshal error: ", err)
